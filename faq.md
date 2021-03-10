@@ -2,7 +2,7 @@
 
 ## Is my data secure?
 
-Yes. I **DON'T** collect the data sent through the proxy, but the port number of the connection is logged.
+Yes. I **DON'T** collect the data sent through the proxy, but the IP address and the port number used are logged by FRPS.
 
 ## Is this service always free?
 
@@ -12,16 +12,16 @@ Yes. This service won't ever cost you money.
 
 This might be caused by the following reasons:
 
-* the port number is already in use
-* something wrong with your frpc.ini file
-* the local IP address or local port number is incorrect
-* your local server firewall blocks the connection
-* our server is offline or under maintenance
-* the IP address or port number of our proxy server has been changed
+* the port number has already been used \(see [below](faq.md#why-my-port-number-has-been-used-even-your-website-said-it-was-available)\)
+* something wrong with your frpc.ini file \(check the terminal output\)
+* the service is not running or listening to the 'local\_port'
+* the proxy server is offline or under maintenance \(if [this page](https://free-frp-api.alaister.net:42881/) is offline or not showing a port number, it's likely the server is also offline\)
+* the 'server\_addr' or 'server\_port' is incorrect \(double-check the configuration [here](getting-started.md#configuration)\)
+* something wrong with your service or local server
 
-## How can I check which port is available?
+## Why the port number shown on [this page](https://free-frp-api.alaister.net:42881/) is not working?
 
-An API will be released soon. You may try using some weird port numbers, like 49283, or any strange numbers you like.
+To prevent users from spamming the website to generate port numbers, the generated port is **cached for 2 minutes**. When more than one users generate port numbers at the same time, as they are the same, they may use your port number. If this happens, please wait for a few minutes and try again.
 
 ## Still have questions?
 

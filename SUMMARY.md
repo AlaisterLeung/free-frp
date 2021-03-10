@@ -3,4 +3,5 @@
 * [Introduction](README.md)
 * [Getting Started](getting-started.md)
 * [FAQ](faq.md)
+* [Terms of Service](tos.md)
 
