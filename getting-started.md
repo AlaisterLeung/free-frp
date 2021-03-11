@@ -27,16 +27,16 @@ In the following example, we will expose the SSH server to the Internet so that 
 
 {% hint style="info" %}
 Currently, only TCP proxies are tested. You may use other proxy types provided by FRP, but they aren't guaranteed to work with my proxy server.
+
+Also, please don't directly copy and paste the configuration below to your 'frpc.ini' file to avoid raising the INI syntax error!
 {% endhint %}
 
 {% code title="frpc.ini" %}
 ```text
-# Don't change these configurations
 [common]
 server_addr = 198.245.62.27
 server_port = 46375
 
-# Change the configurations below
 [ssh]
 type = tcp
 local_ip = 127.0.0.1
@@ -50,7 +50,7 @@ You should change the 'remote\_port' and it should be between 30000 and 50000. C
 {% endhint %}
 
 {% hint style="warning" %}
-Please don't mix up 'remote\_port' with 'server\_port'. You should **NEVER** change the 'server\_port' and 'server\_addr' unless you know what you are doing.
+Please don't mix up 'remote\_port' with 'server\_port'. You should keep the 'server\_port' and 'server\_addr' same as the configurations above.
 {% endhint %}
 
 {% hint style="info" %}
