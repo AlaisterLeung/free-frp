@@ -5,7 +5,7 @@
 Download the latest release from [Github](https://github.com/fatedier/frp/releases/latest) and extract the file.
 
 ```bash
-$ wget https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz -O frp.tar.gz
+$ wget https://github.com/fatedier/frp/releases/download/v0.36.2/frp_0.36.2_linux_amd64.tar.gz -O frp.tar.gz
 $ tar -xvzf frp.tar.gz
 ```
 
@@ -18,7 +18,7 @@ You may need to change the version number above if it is outdated or change the 
 Then, modify the file 'frpc.ini' inside the extracted folder.
 
 ```bash
-$ cd frp_0.35.1_linux_amd64
+$ cd frp_0.36.2_linux_amd64
 $ chmod 755 frpc
 $ nano frpc.ini
 ```
