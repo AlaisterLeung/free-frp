@@ -1,10 +1,10 @@
 # Changelog
 
-## v1.0.1 - March 22, 2021
+## v1.1 - August 5, 2021
 
 ### Changed
 
-* Updated FRPS to v0.36.2.
+* Updated FRPS to v0.37.1.
 
 
 

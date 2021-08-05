@@ -4,62 +4,37 @@
 
 Download the latest release from [Github](https://github.com/fatedier/frp/releases/latest) and extract the file.
 
-```bash
-$ wget https://github.com/fatedier/frp/releases/download/v0.36.2/frp_0.36.2_linux_amd64.tar.gz -O frp.tar.gz
-$ tar -xvzf frp.tar.gz
-```
-
-{% hint style="info" %}
-You may need to change the version number above if it is outdated or change the architecture depends on your local server.
-{% endhint %}
-
 ## Configuration
 
-Then, modify the file 'frpc.ini' inside the extracted folder.
-
-```bash
-$ cd frp_0.36.2_linux_amd64
-$ chmod 755 frpc
-$ nano frpc.ini
-```
-
-In the following example, we will expose the SSH server to the Internet so that it can be accessed with the 'server\_addr' 192.245.62.27 and the 'remote\_port' \(e.g. 34567\). Of course, you can expose any TCP services.
-
-{% hint style="info" %}
-Currently, only TCP proxies are tested. You may use other proxy types provided by FRP, but they aren't guaranteed to work with my proxy server.
-
-Also, please don't directly copy and paste the configuration below to your 'frpc.ini' file to avoid raising the INI syntax error!
-{% endhint %}
+Modify the frpc.ini file and change the **server\_addr** to **172.245.34.140** and the **server\_port** to **5678** as follows:
 
 {% code title="frpc.ini" %}
 ```text
 [common]
-server_addr = 198.245.62.27
-server_port = 46375
+server_addr = 172.245.34.140
+server_port = 5678
 
-[ssh]
-type = tcp
-local_ip = 127.0.0.1
-local_port = 22
-remote_port = 34567
+# Below is optional
+protocol = kcp
+
 ```
 {% endcode %}
 
-{% hint style="danger" %}
-You should change the 'remote\_port' and it should be between 30000 and 50000. Click [here](https://free-frp-api.alaister.net:42881/) to generate a port number, then change the 'remote\_port'. If FRPC failed to start the proxy, the port number may be taken. Learn more [here](faq.md#why-does-my-proxy-fail-to-start).
-{% endhint %}
-
-{% hint style="warning" %}
-Please don't mix up 'remote\_port' with 'server\_port'. You should keep the 'server\_port' and 'server\_addr' same as the configurations above.
-{% endhint %}
-
 {% hint style="info" %}
-The section name '\[ssh\]' can be changed to anything you want. You may also add up to five sections \(to prevent abuse of this free service\).
+We also support KCP protocol. You may learn more about KCP [here](https://github.com/fatedier/frp#support-kcp-protocol).
 {% endhint %}
 
-## Starting the Reverse Proxy
+### Supported Ports and Protocols
 
-Make sure you are still inside the folder. Now run the following command.
+You may use any port numbers **between 40000 and 50000**. Each user can use up to **10 ports**. We support **TCP**/**STCP** \(secure TCP\) and **HTTP\(S\)** protocols. Currently, UDP and P2P are not yet supported.
+
+## More Examples
+
+[https://github.com/fatedier/frp\#example-usage](https://github.com/fatedier/frp#example-usage)
+
+## Starting the FRP Client
+
+Run the following command:
 
 ```bash
 $ ./frpc -c ./frpc.ini
@@ -69,7 +44,7 @@ To stop it, press 'Ctrl + C'.
 
 ### Starting in Background
 
-You may want to keep the connection alive even you close the terminal. To do so, run:
+You may want to keep the proxy alive even you close the terminal. To do so, run:
 
 ```bash
 $ nohup ./frpc -c ./frpc.ini &
@@ -79,5 +54,5 @@ $ nohup ./frpc -c ./frpc.ini &
 Don't forget about the '&' at the end!
 {% endhint %}
 
-Now, you should be able to access your local server with our IP address and the port number you set in the 'frpc.ini' file. In the example on this page, they are '198.245.62.27:34567'.
+Now, you should be able to access your local server through our IP address **172.245.34.140** and the **remote\_port** number you set in your frpc.ini file.
 
