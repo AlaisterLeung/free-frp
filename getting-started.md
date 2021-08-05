@@ -26,7 +26,7 @@ We also support KCP protocol. You may learn more about KCP [here](https://github
 
 ### Supported Ports and Protocols
 
-You may use any port numbers **between 40000 and 50000**. Each user can use up to **10 ports**. We support **TCP**/**STCP** \(secure TCP\) and **HTTP\(S\)** protocols. Currently, UDP and P2P are not yet supported.
+You may use any port numbers **between 40000 and 50000**. Each user can use up to **10 ports**. We support **TCP**/**STCP** \(secure TCP\) and **HTTP\(S\)** protocols. Currently, TCPMux, UDP/SUDP, and P2P are not yet supported.
 
 ## More Examples
 
